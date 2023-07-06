@@ -1,39 +1,29 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main(){
-	int numeros[] = {1,2,3,4,5};
-	int inf,sup,mitad,dato,i;
-	char band='F';
-	
-	dato = 1;
-	
-	//Algoritmo de la Busqueda Binaria
-	inf=0;
-	sup=5;
-	i=0;
-	while((inf<=sup)&&(i<5)){
-		mitad = (inf+sup)/2;
-		if(numeros[mitad] == dato){
-			band='V';
-			break;
-		}
-		if(numeros[mitad]>dato){
-			sup = mitad;
-			mitad = (inf+sup)/2;
-		}
-		if(numeros[mitad]<dato){
-			inf = mitad;
-			mitad = (inf+sup)/2;
-		}
-		i++;
-	}
-	
-	if(band == 'V'){
-		cout<<"El numero se encontro en la pos: "<<mitad<<endl;
-	}
-	else{
-		cout<<"El numero NO se encontro";
-	}
 
-	return 0;
+int busquedaBinaria(int arr[], int l, int r, int x)
+{
+    if (r >= l) {
+        int medio = l + (r - l) / 2;
+        if (arr[medio] == x)
+            return medio;
+        if (arr[medio] > x)
+            return busquedaBinaria(arr, l, medio - 1, x);
+
+        return busquedaBinaria(arr, medio + 1, r, x);
+    }
+
+    return -1;
+}
+ 
+int main()
+{
+    int arr[] = { 3 , 4 , 5 , 9 , 12 };
+    int x = 4;
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int result = busquedaBinaria(arr, 0, n - 1, x);
+    (result == -1)
+        ? cout << "El elemento no esta en el arreglo"
+        : cout << "El elemento está en la posición  " << result;
+    return 0;
 }
