@@ -1,10 +1,5 @@
-//Busqueda Binaria
-
 #include<iostream>
-#include<conio.h>
-
 using namespace std;
-
 int main(){
 	int numeros[] = {1,2,3,4,5};
 	int inf,sup,mitad,dato,i;
@@ -39,7 +34,6 @@ int main(){
 	else{
 		cout<<"El numero NO se encontro";
 	}
-	
-	getch();
+
 	return 0;
 }
