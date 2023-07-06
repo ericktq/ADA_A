@@ -2,7 +2,7 @@
 #include <climits>
 using namespace std;
 
-void Cambio(int tip_moneda[], int tipos_moneda, int monto, int numMonedas[], int moneda_usadas[]) {
+void CambioMonedas(int tip_moneda[], int tipos_moneda, int monto, int numMonedas[], int moneda_usadas[]) {
     numMonedas[0] = 0; 
     for (int i = 1; i <= monto; i++) {
         for (int j = 0; j < tipos_moneda; j++) {
@@ -22,7 +22,7 @@ int main() {
     int tip_monedas=0;
     cout<<"Ingrese el numero de tipos de monedas: ";
     cin>>tip_monedas;
-    
+
     int* tip_moneda=new int[tip_monedas];
     cout<<"Ingrese los tipos de monedas: "<<endl;
     for (int i = 0; i < tip_monedas; i++) {
@@ -34,7 +34,7 @@ int main() {
     for (int i = 1; i <= monto; i++) {
         numMonedas[i] = INT_MAX;
     }
-    Cambio(tip_moneda, tip_monedas, monto, numMonedas, moneda_usadas);
+    CambioMonedas(tip_moneda, tip_monedas, monto, numMonedas, moneda_usadas);
     int cambio[10];
     int valor = monto;
     int tamCambio = 0;
