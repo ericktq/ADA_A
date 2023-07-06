@@ -1,5 +1,5 @@
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 void merge(int array[], int const L, int const medio,int const R)
