@@ -3,26 +3,26 @@
 
 using namespace std;
 
-int mochila(int cap, int pesos[], int valores[], int n) {
+int mochila(int capacidad, int pesos[], int valores[], int n) {
     int** dp=new int*[n + 1];
     for (int i = 0; i <= n; i++) 
-        dp[i] = new int[cap + 1];
+        dp[i] = new int[capacidad + 1];
 
     for (int i = 0; i <= n; i++) 
         dp[i][0] = 0;
     
-    for (int j = 0; j <= cap; j++) 
+    for (int j = 0; j <= capacidad; j++) 
         dp[0][j] = 0;
 
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= cap; j++) {
+        for (int j = 1; j <= capacidad; j++) {
             if (pesos[i - 1] <= j) 
                 dp[i][j] = max(valores[i - 1] + dp[i - 1][j - pesos[i - 1]], dp[i - 1][j]);
             else 
                 dp[i][j] = dp[i - 1][j];
         }
     }
-    return dp[n][cap];
+    return dp[n][capacidad];
 
     for (int i = 0; i <= n; i++)
         delete[] dp[i];
@@ -48,11 +48,11 @@ int main() {
         cin >> valores[i];
     }
 
-    int cap;
+    int capacidad;
     cout << "Capacidad de la mochila: ";
-    cin >> cap;
+    cin >> capacidad;
 
-    int maxValue = mochila(cap, pesos, valores, n);
+    int maxValue = mochila(capacidad, pesos, valores, n);
 
     cout << "El beneficio total es: " << maxValue << endl;
 
