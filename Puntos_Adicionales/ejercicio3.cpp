@@ -1,3 +1,10 @@
+//Diseñe un algoritmo B&B para resolver el problema de la asignación con la
+//siguiente matriz de costes:
+//f1 f2 f3 f4
+//d1 94 1 54 68
+//d2 74 10 88 82
+//d3 62 88 8 76
+//d4 11 74 81 21
 #include <iostream>
 #include <vector>
 #include <queue>
